@@ -66,7 +66,7 @@ else
   echo '●    git is already installed'
 fi
 
-if ! [ -x "$(command -v spotify-client)" ]; then
+if ! [ -x "$(command -v spotify)" ]; then
   echo 'Spotify is not installed.' >&2
   echo "installing dependencies"
   sudo apt-get --assume-yes install libcurl3 -f

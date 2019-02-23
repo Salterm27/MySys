@@ -49,6 +49,16 @@ else
   echo '●    g++ is already installed'
 fi
 
+
+#g++
+if ! [ -x "$(command -v valgrind)" ]; then
+  echo 'valgrind is not installed.' >&2
+  echo "installing valgrind"
+  sudo  apt-get --assume-yes install valgrind
+else 
+  echo '●    valgrind is already installed'
+fi
+
 #Arduino
 if ! [ -x "$(command -v arduino)" ]; then
   echo 'Arduino is not installed.' >&2

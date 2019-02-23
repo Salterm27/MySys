@@ -37,7 +37,7 @@ if ! [ -x "$(command -v gcc)" ]; then
   echo "installing gcc"
   sudo  apt-get --assume-yes install gcc
 else 
-  echo '●   gcc is already installed'
+  echo '●    gcc is already installed'
 fi
 
 #g++

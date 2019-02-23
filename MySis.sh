@@ -29,25 +29,27 @@ else
   echo 'sublime is already installed'
 fi
 
-#VS Code
-if ! [ -x "$(command -v code)" ]; then
-  echo 'VS Code is not installed.' >&2
-  echo "installing VS code"
-  sudo apt update
-  sudo apt install software-properties-common apt-transport-https wget
-  wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-  sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-  sudo apt install code
-else 
-  echo 'VS Code is already installed'
-fi
-
 #Compilers and utilities
 echo "installing compilers"
 sudo  apt-get --assume-yes install gcc
 sudo  apt-get --assume-yes install g++
 sudo  apt-get --assume-yes install arduino
 
+if ! [ -x "$(command -v subl)" ]; then
+  echo 'git is not installed.' >&2
+  echo "installing git"
+  sudo apt-get --assume-yes install git
+else 
+  echo 'git is already installed'
+fi
 
-
-
+if ! [ -x "$(command -v spotify-client)" ]; then
+  echo 'Spotify is not installed.' >&2
+  echo "installing Spotify"
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+  echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
+  sudo apt-get update
+  sudo apt-get --assume-yes install spotify-client
+else 
+  echo 'Spotify is already installed'
+fi

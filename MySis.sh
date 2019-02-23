@@ -2,7 +2,7 @@
 
 echo "installing python and packages"
 sudo apt-get --assume-yes install python3.6
-sudo apt install python-pip
+sudo apt install --assume-yes python-pip
 pip install sciPy
 pip install numPy
 pip install Pandas

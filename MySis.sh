@@ -31,9 +31,32 @@ fi
 
 #Compilers and utilities
 echo "installing compilers"
-sudo  apt-get --assume-yes install gcc
-sudo  apt-get --assume-yes install g++
-sudo  apt-get --assume-yes install arduino
+
+if ! [ -x "$(command -v gcc)" ]; then
+  echo 'gcc is not installed.' >&2
+  echo "installing gcc"
+  sudo  apt-get --assume-yes install gcc
+else 
+  echo 'git is already installed'
+fi
+
+#g++
+if ! [ -x "$(command -v g++)" ]; then
+  echo 'g++ is not installed.' >&2
+  echo "installing g++"
+  sudo  apt-get --assume-yes install g++
+else 
+  echo 'g++ is already installed'
+fi
+
+#Arduino
+if ! [ -x "$(command -v arduino)" ]; then
+  echo 'Arduino is not installed.' >&2
+  echo "installing Arduino"
+  sudo  apt-get --assume-yes install arduino
+else 
+  echo 'arduino is already installed'
+fi
 
 if ! [ -x "$(command -v subl)" ]; then
   echo 'git is not installed.' >&2

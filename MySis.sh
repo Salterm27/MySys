@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "installing python and packages"
-apt-get --assume-yes install python
+apt-get --assume-yes install python3.6
 pip install sciPy
 pip install numPy
 pip install Pandas
@@ -11,5 +11,8 @@ pip install pillow
 pip install requests
 
 echo "installing sublime"
-apt-get --assume-yes install subl3
-
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-get --assume-yes install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+apt-get --assume-yes updatre
+apt-get --assume-yes install sublime-text

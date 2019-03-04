@@ -66,6 +66,12 @@ if ! [ -x "$(command -v arduino)" ]; then
   sudo  apt-get --assume-yes install arduino
 else 
   echo '●    arduino is already installed'
+  echo 'fixing serial port...'  
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt update
+  sudo apt --assume-yes install oracle-java8-set-default
+  echo 'Serial Port hotfix applied.'
+  
 fi
 
 if ! [ -x "$(command -v subl)" ]; then
